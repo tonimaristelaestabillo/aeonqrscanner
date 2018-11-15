@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import SplashPage from "./pages/SplashPage";
 import DashboardPage from "./pages/DashboardPage";
 import ScanPage from "./pages/ScanPage";
+import DrawerPage from "./pages/DrawerPage";
 
 import {
-  SafeAreaView,
-  ScrollView,
-  View,
-  Image,
-  AsyncStorage
-} from "react-native";
-
-import { createDrawerNavigator, StackNavigator } from "react-navigation";
+  createDrawerNavigator,
+  StackNavigator,
+  DrawerItems
+} from "react-navigation";
 
 class App extends Component {
   state = {
@@ -31,34 +28,23 @@ class App extends Component {
   }
 }
 
-// const AppDrawerNavigator = createDrawerNavigator(
-//   {
-//     Home: { screen: DashboardPage },
-//     Account: { screen: AccountsPage },
-//     BillsPayment: { screen: BillsPaymentPage },
-//     Shop: { screen: CardPage },
-//     SendMoney: { screen: SendCashPage },
-//     Withdraw: { screen: WithdrawCashPage },
-//     Cards: { screen: CardPage },
-//     Offers: { screen: OffersPage },
-//     Loyalty: { screen: LoyaltyPage },
-//     History: { screen: HistoryPage },
-//     Logout: { screen: AewdLoginPage },
-//     Announcement: { screen: AnnouncementPage },
-//     Donate: { screen: DonatePage },
-//     Login: { screen: LoginPage }
-//   },
-//   {
-//     contentComponent: DrawerPage
-//   }
-// );
+const AppDrawerNavigator = createDrawerNavigator(
+  {
+    Splash: { screen: SplashPage },
+    Dashboard: { screen: DashboardPage },
+    Scan: { screen: ScanPage }
+  },
+  {
+    contentComponent: DrawerPage
+  }
+);
 
 const AppRouter = StackNavigator(
   {
     Splash: props => <SplashPage {...props} />,
     Dashboard: props => <DashboardPage {...props} />,
-    Scan: props => <ScanPage {...props} />
-    // Drawer: { screen: AppDrawerNavigator }
+    Scan: props => <ScanPage {...props} />,
+    Drawer: { screen: AppDrawerNavigator }
   },
   {
     initialRouteName: "Splash",

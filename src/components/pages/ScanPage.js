@@ -23,6 +23,7 @@ class ScanPage extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
     const { container, text } = styles;
     return (
       <View style={container}>
@@ -30,8 +31,13 @@ class ScanPage extends Component {
           onRead={this.onSuccess.bind(this)}
           topContent={<Text style={text}>Scan any QR Code</Text>}
           bottomContent={
-            <TouchableOpacity style={styles.buttonTouchable}>
-              <Text style={styles.text}>OK. Got it!</Text>
+            <TouchableOpacity>
+              <Text
+                style={styles.text}
+                onPress={() => navigation.navigate("Splash")}
+              >
+                OK. Got it!
+              </Text>
             </TouchableOpacity>
           }
         />
@@ -43,17 +49,6 @@ class ScanPage extends Component {
 const styles = StyleSheet.create({
   text: {
     color: "#ffffff"
-  },
-  textBold: {
-    fontWeight: "500",
-    color: "#000"
-  },
-  buttonText: {
-    fontSize: 21,
-    color: "rgb(0,122,255)"
-  },
-  buttonTouchable: {
-    padding: 16
   },
   container: {
     flex: 1,

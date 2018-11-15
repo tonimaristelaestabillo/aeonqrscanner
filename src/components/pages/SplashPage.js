@@ -18,8 +18,8 @@ class SplashPage extends Component {
     return (
       <View style={container}>
         <Image style={image} source={require("../../assets/qr.png")} />
-        <Text style={text}> This is the SplashPage </Text>
-        <Button title="Scan" onPress={() => navigation.navigate("Scan")} />
+        <Text style={text}> This is a sample QR Scanner application </Text>
+        <Button title="Scan" onPress={() => navigation.navigate("Dashboard")} />
       </View>
     );
   }
@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     resizeMode: "contain"
   },
   text: {
-    color: "#ffffff"
+    color: "#ffffff",
+    padding: 20
   },
   container: {
     flex: 1,

@@ -11,7 +11,7 @@
     "react-native": "0.57.5",
     "react-native-camera": "^1.4.1",
     "react-native-qrcode-scanner": "^1.1.0",
-    "react-navigation": "^2.18.2"
+    "react-navigation": "^2.16.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
