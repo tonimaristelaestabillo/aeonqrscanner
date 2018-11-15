@@ -5,10 +5,15 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Linking
+  Linking,
+  Dimensions,
+  View
 } from "react-native";
 
 import QRCodeScanner from "react-native-qrcode-scanner";
+
+const SCREEN_WIDTH = Dimensions.get("window").width;
+const SCREEN_HEIGHT = Dimensions.get("window").height;
 
 class ScanPage extends Component {
   onSuccess(e) {
@@ -18,32 +23,26 @@ class ScanPage extends Component {
   }
 
   render() {
+    const { container, text } = styles;
     return (
-      <QRCodeScanner
-        onRead={this.onSuccess.bind(this)}
-        topContent={
-          <Text style={styles.centerText}>
-            Go to{" "}
-            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-            your computer and scan the QR code.
-          </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
-      />
+      <View style={container}>
+        <QRCodeScanner
+          onRead={this.onSuccess.bind(this)}
+          topContent={<Text style={text}>Scan any QR Code</Text>}
+          bottomContent={
+            <TouchableOpacity style={styles.buttonTouchable}>
+              <Text style={styles.text}>OK. Got it!</Text>
+            </TouchableOpacity>
+          }
+        />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  centerText: {
-    flex: 1,
-    fontSize: 18,
-    padding: 32,
-    color: "#777"
+  text: {
+    color: "#ffffff"
   },
   textBold: {
     fontWeight: "500",
@@ -55,6 +54,12 @@ const styles = StyleSheet.create({
   },
   buttonTouchable: {
     padding: 16
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#1c3469",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
 
