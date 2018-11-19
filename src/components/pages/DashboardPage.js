@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
-import { Header } from "../common";
+import { Header, TabbedMenu } from "../common";
 import { DrawerActions } from "react-navigation";
 
 class DashboardPage extends Component {
@@ -18,11 +18,10 @@ class DashboardPage extends Component {
           }
         />
         <View style={container}>
-          {/* Header */}
-
           <Text style={text}> This is the DashboardPage </Text>
           <Button title="Scan QR" onPress={() => navigation.navigate("Scan")} />
         </View>
+        <TabbedMenu navigation={navigation} />
       </View>
     );
   }

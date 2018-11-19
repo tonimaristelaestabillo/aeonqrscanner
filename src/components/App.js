@@ -24,35 +24,55 @@ class App extends Component {
   }
 
   render() {
-    return <AppRouter />;
+    return <AppStack />;
   }
 }
 
-const AppDrawerNavigator = createDrawerNavigator(
+// const AppDrawerNavigator = createDrawerNavigator(
+//   {
+//     Splash: { screen: SplashPage },
+//     Dashboard: { screen: DashboardPage },
+//     Scan: { screen: ScanPage }
+//   },
+//   {
+//     contentComponent: DrawerPage
+//   }
+// );
+
+const RootStack = createDrawerNavigator(
   {
     Splash: { screen: SplashPage },
     Dashboard: { screen: DashboardPage },
     Scan: { screen: ScanPage }
   },
   {
-    contentComponent: DrawerPage
+    intialRouteName: "Splash"
   }
 );
 
-const AppRouter = StackNavigator(
+const AppStack = StackNavigator(
   {
-    Splash: props => <SplashPage {...props} />,
-    Dashboard: props => <DashboardPage {...props} />,
-    Scan: props => <ScanPage {...props} />,
-    Drawer: { screen: AppDrawerNavigator }
+    RootStack: { screen: RootStack }
   },
   {
-    initialRouteName: "Splash",
-    headerMode: "none",
-    navigationOptions: {
-      headerVisible: false
-    }
+    headerMode: "none"
   }
 );
+
+// const AppRouter = StackNavigator(
+//   {
+//     Splash: props => <SplashPage {...props} />,
+//     Dashboard: props => <DashboardPage {...props} />,
+//     Scan: props => <ScanPage {...props} />,
+//     Drawer: { screen: AppDrawerNavigator }
+//   },
+//   {
+//     initialRouteName: "Splash",
+//     headerMode: "none",
+//     navigationOptions: {
+//       headerVisible: false
+//     }
+//   }
+// );
 
 export default App;

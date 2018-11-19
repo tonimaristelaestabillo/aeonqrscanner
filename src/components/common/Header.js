@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     height: SCREEN_HEIGHT / 12,
     width: SCREEN_WIDTH,
     padding: 15,
-    marginTop: 30,
+    marginTop: 50,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"
